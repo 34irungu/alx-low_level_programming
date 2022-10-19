@@ -1,0 +1,1 @@
+	This Project folder contains C functions and nested loops used to solve tasks at Holberton School.
