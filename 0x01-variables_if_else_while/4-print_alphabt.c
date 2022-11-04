@@ -10,15 +10,11 @@ int main(void)
 
 	for (c = 'a'; c <= 'z'; c++)
 	{
-		while (c == 'e')
+		if (c == 'e' || c == 'q')
 		{
 			c++;
-			while(c == 'q')
-			{
-				c++;
-			}
-			putchar(c);
 		}
+		putchar(c);
 	}
 	putchar('\n');
 	return (0);
