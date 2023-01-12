@@ -12,11 +12,12 @@ char *_strstr(char *haystack, char *needle)
 {
 	char *start = haystack;
 	char *p;
-	char *q = needle;
+	char *q;
 
 	while (*start)
 	{
 		p = start;
+		q = needle;
 
 
 		while (*p && *q && *p == *q)
