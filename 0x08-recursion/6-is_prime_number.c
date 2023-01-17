@@ -1,5 +1,6 @@
 #include "main.h"
 
+int isPrime(int n, int i);
 /**
  * is_prime_number - checks if a number is a  prime number
  * @n: The number to check.
@@ -8,19 +9,30 @@
  */
 int is_prime_number(int n)
 {
-	int i;
+	return (isPrime(n, 2));
+}
+
+/**
+ * isPrime - locates a prime number from i
+ * @n: The number to check
+ * @i: iterate number
+ *
+ * Return: The prime number
+ */
+int isPrime(int n, int i)
+{
 
 	if (n <= 1)
+		return (0);
+
+	if (i == n)
+	{
+		return (1);
+	}
+
+	if (n % i == 0)
 	{
 		return (0);
 	}
-
-	for (i = 2; i < n; i++)
-	{
-		if (n % i == 0)
-		{
-			return (0);
-		}
-	}
-	return (1);
+	return (isPrime(n, i + 1));
 }
