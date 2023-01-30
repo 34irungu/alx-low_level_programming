@@ -5,7 +5,6 @@
 /**
  * get_op_func - selects the function based on the operator
  * @s: operator
- * @int: integer parameters
  *
  * Return: Pointer to the respective function.
  */
