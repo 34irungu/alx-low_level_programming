@@ -1,41 +1,47 @@
+#include <stdio.h>
 #include "main.h"
-#include <sys/types.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 /**
- * append_text_to_file - ...
- * @filename: ...
- * @text_content: ...
- *
- * Return: 1 (on success), -1 (on failure)
- */
+  * append_text_to_file - ...
+  * @filename: ...
+  * @text_content: ...
+  *
+  * Return: ...
+  */
+
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, i = 0;
-	ssize_t nwrite;
+	int fd;
 
 	if (!filename)
 		return (-1);
 
-	if (!text_content)
-		return (-1);
-
 	fd = open(filename, O_WRONLY | O_APPEND);
-
 	if (fd == -1)
 		return (-1);
 
-	while (text_content[i])
-		i++;
-
-	nwrite = write(fd, text_content, i);
+	if (text_content)
+	{
+		if (write(fd, text_content, _strlen(text_content)) == -1)
+			return (-1);
+	}
 
 	close(fd);
-
-	if (nwrite == -1 || nwrite != i)
-		return (-1);
-
 	return (1);
+}
+
+/**
+  * _strlen - Returns the length of a string
+  * @s: String to count
+  *
+  * Return: String length
+  */
+int _strlen(char *s)
+{
+	int c = 0;
+
+	while (s[c])
+		c++;
+
+	return (c);
 }
